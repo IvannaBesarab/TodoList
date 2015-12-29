@@ -1,71 +1,68 @@
 <html>
-  <head>
-    <style type="text/css">
-      a {
-        margin: auto 20px ;
-      }
-      li {
-        list-style-type: none;
-      }
-    </style>
-    
-  </head>
+	<head>
+		<style type="text/css">
+		   a {
+			 margin: auto 20px;
+		   }
+		   
+		   li {
+			 list-style-type: none;
+		   }
+		</style>	
+	</head>
+	<body>
+	  <form>
+		<p>Add new task to list:</p>
+		<input type="text" id="newTask"/>
+		<button  id="submit" value="Add Task"> Add Task
+		  </button>
+	  </form>
 
-<body>
-  <form>
-    <p>Add new task to the list:</p>
-    <input type="text" id="newTask"/>
-    <button  id="submit" value="Add Task"> Add Task
-      </button>
-  </form>
+	  <ul id="todoList"></ul>
+	  
+	  <script type="text/javascript">
+		function init() {
+			var form = document.getElementsByTagName('form');
+			var button = document.getElementById('submit').addEventListener('click', addNewTask);
+			var todoList = document.getElementById('todoList');
+			var listOfTasks = [];
 
-  <ul id="todoList"></ul>
+			function addNewTask(event) {
+				var newTask = document.getElementById('newTask');
+				event.preventDefault();
 
-  <script type="text/javascript">
-      function init() {
-        var form = document.getElementsByTagName('form');
-        var button = document.getElementById('submit').addEventListener('click', addNewTask);
-        var todoList = document.getElementById('todoList');
-        var listOfTasks = [];
-      
-        function addNewTask(event) {
-          var newTask = document.getElementById('newTask');
-          event.preventDefault();
-      
-          if (!newTask.value.length) {
-            return;
-          }
-      
-          listOfTasks.push(newTask.value);
-          addItemToList(listOfTasks);
-          newTask.value = '';
-        }
-      
-        function addItemToList(item) {
-          var listItem = document.createElement('li');
-      
-          if (item.length > 0) {
-            for (var i = 0; i < item.length; i++) {
-              listItem.innerHTML = '<a href="">x</a>' + item[i];
-              listItem.addEventListener('click', deleteTask)
-              todoList.appendChild(listItem);
-            };
-          }
-      
-        }
-      
-        function deleteTask(event) {
-          event.preventDefault();
-          this.parentNode.removeChild(this);
-        }
-        
-    }
-    
-    init();
+				if (!newTask.value.length) {
+				  return;
+				}
 
-  
-    </script>
+				listOfTasks.push(newTask.value);
+				addItemToList(listOfTasks);
+				newTask.value = '';
+			  }
 
+			function addItemToList(item) {
+				var listItem = document.createElement('li');
+
+				if (item.length > 0) {
+					var l = item.length;
+					for (var i = 0; i < l; i++) {
+						listItem.innerHTML = '<a href="">x</a>' + item[i];
+						listItem.addEventListener('click', deleteTask)
+						todoList.appendChild(listItem);
+					};
+				}
+			  }
+
+			function deleteTask(event) {
+				event.preventDefault();
+				this.parentNode.removeChild(this);
+			}
+
+		}
+	
+		init();
+		
+	</script>
   </body>  
 </html>
 
