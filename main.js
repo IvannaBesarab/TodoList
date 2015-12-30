@@ -13,19 +13,19 @@ var Todo = (function(){
     }
 
     function addItemToList(item) {
-    		var LI = document.createElement('li');
-    		LI.innerHTML = '<a href="">x</a>' + item;
-    		LI.addEventListener('click', deleteTask);
-    		TODO_LIST_ID.appendChild(LI);
+    	var LI = document.createElement('li');
+    	LI.innerHTML = '<a href="">x</a>' + item;
+    	LI.addEventListener('click', deleteTask);
+    	TODO_LIST_ID.appendChild(LI);
     }
     
     function deleteTask(event) {
-    	  event.preventDefault();
+    	event.preventDefault();
         this.parentNode.removeChild(this);
     }
     			
     return {
-    		createTask: addNewTask
+    	createTask: addNewTask
     };
 			
 })();
