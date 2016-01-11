@@ -1,27 +1,25 @@
 var Todo = (function(){
-  	var TODO_LIST_ID = document.querySelector('#todoList');
-  	var NEW_TASK_ID = document.querySelector('#newTask');
-  			
+  	
   	function addNewTask(event) {
         event.preventDefault();
-        if (!NEW_TASK_ID.value.length) {
-        		 return;
+				
+        if (!this.previousElementSibling.value.length) {
+        		return;
         	}
-        
-        addItemToList(NEW_TASK_ID.value);
-        NEW_TASK_ID.value = '';
-    }
-
-    function addItemToList(item) {
-    	var LI = document.createElement('li');
-    	LI.innerHTML = '<a href="">x</a>' + item;
-    	LI.addEventListener('click', deleteTask);
-    	TODO_LIST_ID.appendChild(LI);
+			
+		var UL = document.createElement('ul');
+    	UL.innerHTML = '<li><a href="">x</a>' + this.previousElementSibling.value + '</li>';
+    	UL.addEventListener('click', deleteTask);
+    	this.nextElementSibling.appendChild(UL);
+		
+        this.previousElementSibling.value = '';
     }
     
     function deleteTask(event) {
     	event.preventDefault();
-        this.parentNode.removeChild(this);
+    	if(event.target.tagName === 'A'){
+			this.parentNode.removeChild(this);
+    	}   	
     }
     			
     return {
@@ -30,4 +28,5 @@ var Todo = (function(){
 			
 })();
 	  
-document.querySelector('#submit').addEventListener('click', Todo.createTask);
+document.querySelector('#submitOne').addEventListener('click', Todo.createTask);
+document.querySelector('#submitTwo').addEventListener('click', Todo.createTask);

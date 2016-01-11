@@ -1,7 +1,11 @@
+ .todoList {
+	float: left;
+    margin: 20px;
+	}
  a {
 	 margin: auto 20px;
-  }
+	}
 		   
 li {
 	 list-style-type: none;
-  }
+	}
