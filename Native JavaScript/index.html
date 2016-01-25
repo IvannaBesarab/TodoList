@@ -1,27 +1,46 @@
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="style.css"></style>	
-		
+		<link rel="stylesheet" type="text/css" href="./style/style.css"></style>
+
 	</head>
 	<body>
-		<div class="todoList">
+
+		<div class="todoListOne">
 			<p>Add new task to list #1:</p>
-			<input type="text"/>
-			<button id="submitOne" value="Add Task"> Add Task
-			</button>
-			
-			<div></div>  
+
+			<div>
+				<input type="text"/>
+				<button id="submitOne" value="Add Task"> Add Task
+				</button>
+			</div>
+
+			<div class="listOne"></div>
 		</div>
-	
-		<div class="todoList">
+
+		<div class="todoListTwo">
 			<p>Add new task to list #2:</p>
-			<input type="text"/>
-			<button id="submitTwo" value="Add Task"> Add Task
-			</button>
-			 
-			<div></div>  
+
+			<div class="list-block-two">
+				<input type="text"/>
+				<button id="submitTwo" value="Add Task"> Add Task
+				</button>
+			</div>
+
+			<div class="listTwo"></div>
 		</div>
- 	  
-	  <script type="text/javascript" src="main.js"></script>
-  </body>  
+
+	  <script type="text/javascript" src="./js/main.js"></script>
+		<script>
+			(function(){
+
+				Todo.init({rootElement: document.querySelector('.todoListOne'),
+									placeToListTasks: document.querySelector('.listOne')});
+
+				Todo.init({rootElement: document.querySelector('.todoListTwo'),
+									placeToListTasks:document.querySelector('.listTwo')});
+
+
+			})();
+		</script>
+  </body>
 </html>

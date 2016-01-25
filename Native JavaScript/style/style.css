@@ -1,0 +1,20 @@
+ body{
+   display: flex;
+ }
+
+ .todoListOne, .todoListTwo {
+      margin: 50px auto;
+ }
+
+.task {
+  display: flex;
+}
+
+.task .delete {
+  margin-left: 10px;
+
+}
+
+.listOne, .listTwo {
+  width: calc(60%);
+}
