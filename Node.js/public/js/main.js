@@ -18,9 +18,20 @@ $(document).ready(function() {
 
 			$(button).on('click', function() {
 				var inputText = params.rootElement.find('input').val()
-				if (!inputText) {
-					return
-				}
+				//if (!inputText) {
+					$.ajax({
+						method: 'POST',
+						data: JSON.stringify({inputText: inputText}),
+				        contentType: 'application/json',
+                        url: 'http://localhost:3030/input',
+                        success: function(data) {
+                            console.log('success');
+                            console.log(JSON.stringify(data));
+                        }
+                    });
+
+					//return
+				//}
 				arr.push(inputText)
 				setToLocalStorage(arr, className)
 				params.placeToListTasks.append('<div class="task">' + inputText +
