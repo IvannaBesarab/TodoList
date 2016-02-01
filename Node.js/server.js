@@ -1,27 +1,27 @@
-var http       = require('http');
-var fs         = require('fs');
-var express    = require('express');
+var http = require('http');
+var fs = require('fs');
+var express = require('express');
 var bodyParser = require('body-parser');
-var app        =  express();
+var app = express();
 
 app.use(express.static('public'));
 app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 app.get('/', function (req, res) {
-    fs.readFile('index.html', function (err, data){
+    fs.readFile('index.html', function (err, data) {
         res.end(data);
-   });
-})
+    });
+});
 
-app.post('/input', function (req, res, b) {
-   console.log(req.body);
-   if (!req.body.inputText){
-       res.json({valid: false});
-       return;
-   }
-   res.json({valid: true});
+app.post('/input', function (req, res) {
+    if (!req.body.inputText) {
+        res.status(500);
+        res.end();
+        return;
+    }
+    res.status(200);
+    res.end();
 });
 
 app.listen(3030);
-console.log('Server is working on localhost: ' + 3000);
+console.log('Server is working on localhost: ' + 3030);

@@ -1,29 +1,37 @@
 <html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="./style/style.css"></style>
-	</head>
-	<body>
-		<div class="todoListOne">
-			<p>Add new task to list #1:</p>
-			<div>
-				<input type="text"/>
-				<button id="submitOne" value="Add Task"> Add Task
-				</button>
-			</div>
-			<div class="listOne"></div>
-		</div>
+<head>
+    <link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="style/Todo.css"/>
+</head>
+<body>
 
-		<div class="todoListTwo">
-			<p>Add new task to list #2:</p>
-			<div class="list-block-two">
-				<input type="text"/>
-				<button id="submitTwo" value="Add Task"> Add Task
-				</button>
-			</div>
-			<div class="listTwo"></div>
-		</div>
- 	  <script src="./lib/jquery-2.2.0.js"></script>
-		<script src="./lib/lodash.js"></script>
-		<script type="text/javascript" src="./js/main.js"></script>
-  </body>
+<div class="todoListOne">
+    <p class="text-center">Add new task to list #1:</p>
+
+    <div class="control-group input-append">
+        <input class="span2" type="text"/>
+        <button class="btn" id="submitOne" value="Add Task" type="button"> Add Task
+        </button>
+    </div>
+
+    <div class="listOne"></div>
+</div>
+
+<div class="todoListTwo">
+    <p class="text-center">Add new task to list #2:</p>
+
+    <div class="control-group input-append">
+        <input class="span2" type="text"/>
+        <button class="btn" id="submitTwo" value="Add Task"> Add Task
+        </button>
+    </div>
+    <div class="listTwo"></div>
+</div>
+
+<script src="libs/jquery-2.2.0.js"></script>
+<script src="libs/bootstrap/js/bootstrap.js"></script>
+<script src="utils/String.format.js"></script>
+<script src="components/Todo.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
 </html>
